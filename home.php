@@ -46,18 +46,13 @@ require_once "connection.php";
                 echo "<div class='Gallery'>";
                 echo "<a target='_blank' href='img/Festival" . $i . ".jpg'>";
                 echo "<img class='GalleryContent' src='img/Festival" . $i . ".jpg'>";
-                echo "<div class='desc'>" . $data["name"] . "</div>";
+                echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
+                echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
                 echo "</a>";
                 echo "</div>";
                 $i++;
             }
             ?>
-                <div class="Gallery">
-                    <a target="_blank" href="img/Festival1.jpg">
-                        <img class="GalleryContent"src="img/Festival1.jpg" alt="" >
-                        <div class="desc"> Festival1</div>
-                    </a>
-                </div>
             </section>
         </header>
     </body>
