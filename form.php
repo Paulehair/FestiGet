@@ -19,11 +19,11 @@ if (isset($_POST['formok']))
 {
     if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mail2']) && !empty($_POST['mdp']) && !empty($_POST['mdp2']))
     {
-        $pseudo = htmlspecialchars($_POST['pseudo'];
-        $mail = htmlspecialchars($_POST['mail'];
-        $mail2 = htmlspecialchars($_POST['mail2'];
-        $mdp = sha512($_POST['mdp'];
-        $mdp2 = sha-512($_POST['mdp2'];
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $mail = htmlspecialchars($_POST['mail']);
+        $mail2 = htmlspecialchars($_POST['mail2']);
+        $mdp = sha512($_POST['mdp']);
+        $mdp2 = sha512($_POST['mdp2']);
     }
     else
     {
