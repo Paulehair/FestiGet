@@ -9,21 +9,49 @@
 
 <?php
 
-try {
-    $conn = new PDO('mysql:dbname=database;host=localhost', 'root', 'root');
-} catch (PDOException $exception) {
-    die($exception->getMessage());
-}
+require_once ('db-init.php');
 
 if (isset($_POST['formok']))
 {
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $mail = htmlspecialchars($_POST['mail']);
+    $mail2 = htmlspecialchars($_POST['mail2']);
+    $mdp = sha1($_POST['mdp']);
+    $mdp2 = sha1($_POST['mdp2']);
+
+    //Condition pour vérifier que les champs ne sont pas vides
     if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mail2']) && !empty($_POST['mdp']) && !empty($_POST['mdp2']))
     {
-        $pseudo = htmlspecialchars($_POST['pseudo'];
-        $mail = htmlspecialchars($_POST['mail'];
-        $mail2 = htmlspecialchars($_POST['mail2'];
-        $mdp = sha512($_POST['mdp'];
-        $mdp2 = sha-512($_POST['mdp2'];
+        //Condition pour vérifier que le pseudo ne dépasse pas 255 caractères
+        $pseudolen = strlen($pseudo);
+        if ($pseudolen <= 255)
+        {
+            //Condition pour vérifier que les 2 adresses mails sont bien les mêmes
+            if ($mail == $mail2)
+            {
+                //Condition avec FILTER_VALIDATE_EMAIL pour vérifier que c'est bien une addresse mail
+                if (filter_var($mail, FILTER_VALIDATE_EMAIL))
+                {
+                    //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
+                    if ($mdp !== $mdp2)
+                    {
+                        $emptiness = "Vos mots de passe ne correspondent pas";
+                    }
+                }
+                else
+                {
+                    $emptiness = "Votre adresse mail n'est pas valide";
+                }
+            }
+            else
+            {
+                $emptiness = "Vos addresses mail ne correspondent pas";
+            }
+        }
+        else
+        {
+            $emptiness = "Votre pseudo ne doit pas dépasser 255 caractères !!";
+        }
     }
     else
     {
@@ -51,7 +79,7 @@ if (isset($_POST['formok']))
                         <label for="pseudo">Pseudo :</label>
                     </td>
                     <td>
-                        <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo">
+                        <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo" value="<?php if (isset($pseudo)) {echo $pseudo}?>">
                     </td>
                 </tr>
                 <tr>
