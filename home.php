@@ -44,8 +44,8 @@ require_once "connection.php";
             $i = 0;
             while (isset($data[$i])) {
                 echo "<div class='Gallery'>";
-                echo "<a target='_blank' href='img/Festival" . $i . ".jpg'>";
-                echo "<img class='GalleryContent' src='img/Festival" . $i . ".jpg'>";
+                echo "<a target='_blank' href='./product.php'>";
+                echo "<img class='GalleryContent' src='img/Festival1.jpg'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
                 echo "</a>";
