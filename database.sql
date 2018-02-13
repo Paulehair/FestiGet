@@ -35,6 +35,7 @@ CREATE TABLE `fest` (
   `ticket_price_d1` int(11) NOT NULL,
   `ticket_price_d2` int(11) NOT NULL,
   `ticket_price_d3` int(11) NOT NULL,
+  `link` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -46,7 +47,7 @@ CREATE TABLE `fest` (
 
 LOCK TABLES `fest` WRITE;
 /*!40000 ALTER TABLE `fest` DISABLE KEYS */;
-INSERT INTO `fest` VALUES (1,'FestiCoquin','Dans ta chambre','13/02/2018','14/02/2018','Il parait que la nuit, tout est permis...',2,2,0,69,69,0),(2,'Dark Souls Fest','Dans tes cauchemards','19/02/2018','21/02/2018','C\'est hardcore et tu vas prendre cher...',50,50,50,30,30,30),(3,'LoveFest','Dans tes rêves','29/03/2018','29/03/2018','I love you, you love me... Le festival des amoureux.ses!',200,250,200,10,12,10);
+INSERT INTO `fest` VALUES (1,'FestiCoquin','Dans ta chambre','13/02/2018','14/02/2018','Il parait que la nuit, tout est permis...',2,2,0,69,69,0,'products.php'),(2,'Dark Souls Fest','Dans tes cauchemards','19/02/2018','21/02/2018','C\'est hardcore et tu vas prendre cher...',50,50,50,30,30,30,'products.php'),(3,'LoveFest','Dans tes rêves','29/03/2018','29/03/2018','I love you, you love me... Le festival des amoureux.ses!',200,250,200,10,12,10,'products.php');
 /*!40000 ALTER TABLE `fest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-13 16:49:59
+-- Dump completed on 2018-02-13 19:28:41
