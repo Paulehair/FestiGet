@@ -1,0 +1,45 @@
+.homePage {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.hearderLogo {
+  font-family: "Open sans";
+  position: relative;
+  right: 0;
+  top: 13px;
+  left: 18px;
+  color: black;
+}
+
+.H1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.H2 {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.hearderRechercher {
+  position: relative;
+  font-family: "Open sans";
+  margin-top: -25px;
+  margin-right: 269px;
+}
+
+.Rechercher {
+  text-align: right;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.cadi {
+  position: relative;
+  margin-left: 1500px;
+  width: 30px;
+  height: 27px;
+  margin-top: -30px;
+}
