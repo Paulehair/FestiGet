@@ -1,0 +1,302 @@
+.homePage {
+  width: 98vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* <!-- LOGO --> */
+
+.hearderLogo {
+  font-family: "Open sans";
+  position: relative;
+  right: 0;
+  top: 13px;
+  left: 18px;
+  color: black;
+}
+
+.H1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.getcolor {
+  color: #EF6985;
+  font-weight: bold;
+}
+
+.H2 {
+  font-weight: lighter;
+  font-size: 12px;
+  color: #EF6985;
+}
+
+/* <!-- LOGO --> */
+
+/* <!-- RECHERCHER --> */
+
+.hearderRechercher {
+  position: relative;
+  font-family: "Open sans";
+  margin-top: -25px;
+}
+
+.Rechercher {
+  position: relative;
+  text-align: right;
+  margin-top: -43px;
+  font-size: 18px;
+  font-style: italic;
+  margin-right: 269px;
+}
+
+.cadi {
+  position: relative;
+  margin-left: 1530px;
+  width: 30px;
+  height: 27px;
+}
+
+.PP {
+  position: relative;
+  margin-left: 1600px;
+  margin-top: -45px;
+}
+
+/* <!-- RECHERCHER --> */
+
+/* <!-- PARTIE RECTANGLE --> */
+
+.grandRectangle {
+  height: 630px;
+  width: 98vw;
+  border: 1px solid #000;
+  margin-top: 149px;
+  margin-left: 13px;
+}
+
+.contenuegrandRectangle {
+  position: relative;
+  font-family: "Open sans";
+  font-weight: 600;
+  margin-top: 22px;
+  margin-left: 489px;
+}
+
+.parametres {
+  font-size: 22px;
+  color: #EF6985;
+  margin-bottom: 100px;
+}
+
+.favorisSpan {
+  font-size: 22px;
+  color: #000;
+  margin-left: 582px;
+}
+
+/* <!-- PARTIE RECTANGLE --> */
+
+/* <!-- INFO PERSO --> */
+
+.infoPerso {
+  position: relative;
+  font-family: "Open sans";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 90px;
+}
+
+.penPosition {
+  margin-top: -415px;
+}
+
+.pen {
+  position: relative;
+  margin-left: 209px;
+}
+
+/* <!-- INFO PERSO --> */
+
+/* <!-- PARTIE RECTANGLE GAUCHE --> */
+
+.rectangleGauche {
+  position: relative;
+  margin-top: -632px;
+  margin-left: 13px;
+  height: 630px;
+  width: 330px;
+  border: 1px solid #000;
+}
+
+.PP2 {
+  margin-top: 51px;
+  margin-left: 90px;
+}
+
+.Pseudo {
+  font-family: "Open sans";
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 49px;
+  margin-left: 105px;
+  color: #EF6985;
+}
+
+.Mdp {
+  font-family: "Open sans";
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 31px;
+  margin-left: 120.5px;
+  color: #EF6985;
+}
+
+.shapePosition {
+  position: relative;
+  margin-top: -22px;
+  margin-left: 250px;
+}
+
+/* <!-- PARTIE RECTANGLE GAUCHE --> */
+
+/* <!-- TEXTE FESTIVAL --> */
+
+.textNomFestival {
+  font-family: "Open sans";
+  font-size: 48px;
+  font-weight: lighter;
+  color: #858585;
+}
+
+.textPosition {
+  margin-left: 103px;
+  margin-top: 81px;
+}
+
+.picto {
+  margin-left: 1300px;
+  margin-top: -30px;
+}
+
+.share {
+  position: relative;
+  height: 35px;
+  width: 35px;
+}
+
+.heart {
+  position: relative;
+  height: 35px;
+  width: 30px;
+}
+
+.textDate {
+  font-family: "Open sans";
+  font-size: 22px;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.textPosition2 {
+  margin-left: 721px;
+  margin-top: -10px;
+  color: #EF6985;
+}
+
+.textLieu {
+  font-family: "Open sans";
+}
+
+.pinPosition {
+  margin-left: 110px;
+}
+
+.textPosition3 {
+  margin-left: 130px;
+  margin-top: -15px;
+  color: #858585;
+}
+
+.franceBold {
+  font-family: "Open sans";
+  font-weight: bold;
+}
+
+/* <!-- RECTANGLE ROSE --> */
+
+.rectangleRose {
+  margin-top: 97px;
+  width: 930px;
+  height: 132px;
+  border: 3px solid #ED6B86;
+  margin-left: 350px;
+}
+
+.festival27F {
+  position: relative;
+  font-family: "Open sans";
+  font-weight: lighter;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 53px;
+  margin-left: -70px;
+}
+
+.carreRose {
+  position: relative;
+  width: 136px;
+  height: 132px;
+  background-color: #ED6B86;
+  margin-top: -135px;
+  margin-left: 1150px;
+}
+
+.rectangleRose2 {
+  margin-top: 67px;
+  margin-left: 350px;
+  width: 930px;
+  height: 132px;
+  border: 3px solid #ED6B86;
+}
+
+.festival28F {
+  position: relative;
+  font-family: "Open sans";
+  font-weight: lighter;
+  text-align: center;
+  font-size: 22px;
+  margin-top: -80px;
+  margin-left: -310px;
+}
+
+.carreRose2 {
+  position: relative;
+  width: 136px;
+  height: 132px;
+  background-color: #ED6B86;
+  margin-top: -77px;
+  margin-left: 1150px;
+}
+
+.plus {
+  margin-top: 48px;
+  margin-left: 54px;
+}
+
+.rectangleRose3 {
+  margin-top: 67px;
+  margin-left: 350px;
+  width: 930px;
+  height: 132px;
+  border: 3px solid #ED6B86;
+}
+
+.carreRose3 {
+  position: relative;
+  width: 136px;
+  height: 132px;
+  background-color: #ED6B86;
+  margin-top: -77px;
+  margin-left: 1150px;
+}
