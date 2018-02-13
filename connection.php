@@ -5,5 +5,4 @@ try {
     echo "Connection failed! " . $e->getMessage();
     exit;
 }
-echo "Connection succeeded";
 ?>
