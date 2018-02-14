@@ -46,7 +46,7 @@ CREATE TABLE `fest` (
 
 LOCK TABLES `fest` WRITE;
 /*!40000 ALTER TABLE `fest` DISABLE KEYS */;
-INSERT INTO `fest` VALUES (1,'FestiCoquin','Dans ta chambre','13/02/2018','14/02/2018','Il parait que la nuit, tout est permis...',2,2,0,69,69,0),(2,'Dark Souls Fest','Dans tes cauchemards','19/02/2018','21/02/2018','C\'est hardcore et tu vas prendre cher...',50,50,50,30,30,30),(3,'LoveFest','Dans tes rêves','29/03/2018','29/03/2018','I love you, you love me... Le festival des amoureux.ses!',200,250,200,10,12,10),(4,'Rock en Seine','Ile de France','10/04/2018','12/04/2018','Un festival de rock pas comme les autres, qui réunit chaque année des milliers de fans de rock!',2000,2000,2000,30,30,30),(5,'Hellfest','Clisson','25/06/2018','27/06/2018','Le festival des metalleux. Le Hellfest rassemble les fans de musiques extrêmes.',100000,100000,100000,50,50,50),(6,'Beermaggeddon Fest','Paris','22/11/2018','22/11/2018','Le Beermaggeddon fest est fait pour ceux qui aiment le metal et la bière.',200,0,0,15,0,0),(7,'Black Metal Death Fest','Paris','22/11/2018','22/11/2018','Âmes sensibles et poseurs en tous genres, s\'abstenir. Ce festival est fait pour les metalleux, les vrais.',150,0,0,15,0,0),(8,'Jazz en baie','Normandie','15/08/2018','17/08/2018','Vous avez le blues? Allez à ce festival...',300,300,300,25,25,25),(9,'Festival de la richesse','Paris','14/09/2018','16/09/2018','Le festival des gens fortunés revient pour une 2ème édition!',30,30,30,1000,1000,1000);
+INSERT INTO `fest` VALUES (1,'FestiCoquin','Dans ta chambre','13/02/2018','14/02/2018','Il parait que la nuit, tout est permis...',2,2,-1,69,69,0),(2,'Dark Souls Fest','Dans tes cauchemards','19/02/2018','21/02/2018','C\'est hardcore et tu vas prendre cher...',50,50,50,30,30,30),(3,'LoveFest','Dans tes rêves','29/03/2018','29/03/2018','I love you, you love me... Le festival des amoureux.ses!',200,250,-1,10,12,10),(4,'Rock en Seine','Ile de France','10/04/2018','12/04/2018','Un festival de rock pas comme les autres, qui réunit chaque année des milliers de fans de rock!',2000,2000,2000,30,30,30),(5,'Hellfest','Clisson','25/06/2018','27/06/2018','Le festival des metalleux. Le Hellfest rassemble les fans de musiques extrêmes.',100000,100000,100000,50,50,50),(6,'Beermaggeddon Fest','Paris','22/11/2018','22/11/2018','Le Beermaggeddon fest est fait pour ceux qui aiment le metal et la bière.',200,-1,-1,15,0,0),(7,'Black Metal Death Fest','Paris','22/11/2018','22/11/2018','Âmes sensibles et poseurs en tous genres, s\'abstenir. Ce festival est fait pour les metalleux, les vrais.',150,-1,-1,15,0,0),(8,'Jazz en baie','Normandie','15/08/2018','17/08/2018','Vous avez le blues? Allez à ce festival...',300,300,300,25,25,25),(9,'Festival de la richesse','Paris','14/09/2018','16/09/2018','Le festival des gens fortunés revient pour une 2ème édition!',30,30,30,1000,1000,1000);
 /*!40000 ALTER TABLE `fest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,6 +62,7 @@ CREATE TABLE `members` (
   `pseudo` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `privilege` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -72,7 +73,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword'),(3,'Monsieur','monsieur@hotmail.fr','1234'),(4,'root','root@localhost.fr','root'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol');
+INSERT INTO `members` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword','member'),(3,'Monsieur','monsieur@hotmail.fr','1234','member'),(4,'root','root@localhost.fr','root','admin'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol','member');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -85,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-13 23:24:19
+-- Dump completed on 2018-02-14 13:45:31
