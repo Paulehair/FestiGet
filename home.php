@@ -1,7 +1,6 @@
 <?php
 
 require_once "connection.php";
-
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
 SELECT

@@ -11,7 +11,7 @@
 
 require_once ('connection.php');
 
-if (isset($_POST['formok'])) {
+if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $mail = htmlspecialchars($_POST['mail']);
     $mail2 = htmlspecialchars($_POST['mail2']);
@@ -27,11 +27,6 @@ if (isset($_POST['formok'])) {
             if ($mail == $mail2) {
                 //Condition with FILTER_VALIDATE_EMAIL to check if it's a mail
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                    //Condition pour vérifier si le mail existe déjà ou pas
-
-
-                    //$requeteMail = $bdd->prepare("SELECT * FROM member WHERE mail = ?");
-                    //$requeteMail->execute(array($mail));
                     $requeteMail = "SELECT
                         *
                       FROM
@@ -43,26 +38,25 @@ if (isset($_POST['formok'])) {
                     $stmt->bindValue(':mail', $_POST['mail']);
                     $stmt->execute();
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    $mailExist = $requeteMail->rowCount();
+                    //get number of rows to check if mail exists
+                    $mailExist = $stmt->rowCount();
                     if ($mailExist == 0) {
-                        //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
+                        //Check if mail equal mail confirmation
                         if ($mdp == $mdp2) {
-
                             $requete = "INSERT INTO
                               `member`
-                              (`pseudo`, `mail`, `password`)
+                              (`pseudo`, `mail`, `password`, `privilege`)
                               VALUES
-                              (:pseudo, :mail, :mdp)
+                              (:pseudo, :mail, :mdp, 'member')
                               ;";
 
-                            $stmt = $conn->prepare($requete);
+                            $stmt = $connection->prepare($requete);
                             $stmt->bindValue(':pseudo', $_POST['pseudo']);
                             $stmt->bindValue(':mail', $_POST['mail']);
                             $stmt->bindValue(':mdp', $_POST['mdp']);
                             $stmt->execute();
-
-                            $emptiness = "Inscription réussie !!";
+                            header("Location: connexion.php");
+                            exit;
                         }
                         else {
                             $emptiness = "Vos mots de passe ne correspondent pas";
