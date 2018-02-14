@@ -12,6 +12,12 @@ require_once "connection.php";
             <link rel="stylesheet" href="assets/css/home.css">
             <link rel="stylesheet" href="assets/css/flexboxgrid.min.css">
             <link rel="stylesheet" href="assets/css/reset.css">
+        <style>
+            input[type="text"] {
+                position: absolute;
+                opacity: 0;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -29,7 +35,7 @@ require_once "connection.php";
                     <div class="menu">
                         <ul class="menuList">
                             <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Months0</span></a></li>
+                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Month</span></a></li>
                             <li class="menuListItem"><a href="#"> <span class="Itemcolor">Country</span> </a></li>
                             <li class="menuListItem"><a href="#"> <span class="Itemcolor">Music</span> </a></li>
                         </ul>
@@ -38,13 +44,16 @@ require_once "connection.php";
             </section>
             <section class="festivalGallery">
             <?php
-            $data_fetcher = $connection->prepare("SELECT name, place, start, end FROM fest");
+
+            // RETRIEVE DATA FROM DATABASE
+            $data_fetcher = $connection->prepare("SELECT id, name, place, start, end FROM fest");
             $data_fetcher->execute();
             $data = $data_fetcher->fetchAll();
+
+            // FILL ARTICLE TEMPLATES WITH DATA INFORMATIONS AND PRINT IT
             $i = 0;
             while (isset($data[$i])) {
-                echo "<div class='Gallery'>";
-                echo "<a target='_blank' href='./product.php'>";
+                echo "<a class='Gallery' href='product.php?id=" . $data[$i]["id"] . "'>";
                 echo "<img class='GalleryContent' src='img/Festival1.jpg'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
