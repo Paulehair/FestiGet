@@ -1,0 +1,46 @@
+.center {
+    height:100vh;
+    margin:0 auto;
+}
+
+.form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20%;
+}
+
+.table {
+    width: 100%;
+}
+
+.input {
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
+input::placeholder {
+    font-family: "OpenSans-LightItalic";
+    font-size: 14px;
+    color: #000;
+}
+
+.input[type=submit] {
+    width: 50%;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: "OpenSans-Italic";
+    font-size: 10px;
+    color: #fff;
+    background-color: #ED6B86;
+    margin: 10px auto;
+    margin-left: 25%;
+}
+
+.message {
+    text-align: center;
+    margin-top: 5em;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    color: #ED6B86;
+}

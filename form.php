@@ -18,14 +18,14 @@ if (isset($_POST['formok'])) {
     $mdp = sha1($_POST['mdp']);
     $mdp2 = sha1($_POST['mdp2']);
 
-    //Condition pour vérifier que les champs ne sont pas vides
+    //Check if field is not empty
     if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mail2']) && !empty($_POST['mdp']) && !empty($_POST['mdp2'])) {
-        //Condition pour vérifier que le pseudo ne dépasse pas 255 caractères
+        //Check if pseudo length is under 255char
         $pseudolen = strlen($pseudo);
         if ($pseudolen <= 255) {
-            //Condition pour vérifier que les 2 adresses mails sont bien les mêmes
+            //Check if mail and mail2 are equal
             if ($mail == $mail2) {
-                //Condition avec FILTER_VALIDATE_EMAIL pour vérifier que c'est bien une addresse mail
+                //Condition with FILTER_VALIDATE_EMAIL to check if it's a mail
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     //Condition pour vérifier si le mail existe déjà ou pas
 
@@ -45,7 +45,6 @@ if (isset($_POST['formok'])) {
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     $mailExist = $requeteMail->rowCount();
-                    var_dump($mailExist);
                     if ($mailExist == 0) {
                         //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
                         if ($mdp == $mdp2) {
@@ -94,60 +93,48 @@ if (isset($_POST['formok'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/font-face.css">
+    <link rel="stylesheet" href="assets/css/form.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <form method="post" action="">
-            <table>
+    <div class = "center">
+        <form class="form" method="post" action="">
+            <table class="table">
                 <tr>
                     <td>
-                        <label for="pseudo">Pseudo :</label>
-                    </td>
-                    <td>
-                        <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo" value="<?php if (isset($pseudo)) {echo $pseudo;}?>">
+                        <input class="input" id="pseudo" type="text" placeholder="Pseudo" name="pseudo" value="<?php if (isset($pseudo)) {echo $pseudo;}?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="mail">Mail :</label>
-                    </td>
-                    <td>
-                        <input id="mail" type="email" placeholder="Mail" name="mail" value="<?php if (isset($mail)) {echo $mail;}?>">
+                        <input class="input" id="mail" type="email" placeholder="Mail" name="mail" value="<?php if (isset($mail)) {echo $mail;}?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="mail2"> Mail de confirmation :</label>
-                    </td>
-                    <td>
-                        <input id="mail2" type="email" placeholder="Mail de confirmation" name="mail2" value="<?php if (isset($mail2)) {echo $mail2;}?>">
+                        <input class="input" id="mail2" type="email" placeholder="Confirmer votre mail" name="mail2" value="<?php if (isset($mail2)) {echo $mail2;}?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="mdp">Mot de passe :</label>
-                    </td>
-                    <td>
-                        <input id="mdp" type="password" placeholder="Mot de passe" name="mdp">
+                        <input class="input" id="mdp" type="password" placeholder="Mot de passe" name="mdp">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="mdp2">Mot de passe :</label>
-                    </td>
-                    <td>
-                        <input id="mdp2" type="password" placeholder="Confirmer le mdp" name="mdp2">
+                        <input class="input" id="mdp2" type="password" placeholder="Confirmer le mot de passe" name="mdp2">
                     </td>
                 </tr>
             </table>
-            <input type="submit" value="GO" name="formok">
+            <input class="input" type="submit" value="GO" name="formok">
         </form>
 
         <?php
         if (isset($emptiness))
         {
-            echo $emptiness;
+            echo '<p class = "message">'.$emptiness.'</p>';
         }
         ?>
 
