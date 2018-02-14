@@ -64,7 +64,7 @@ CREATE TABLE `member` (
   `password` varchar(255) NOT NULL,
   `privilege` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword','member'),(3,'Monsieur','monsieur@hotmail.fr','1234','member'),(4,'root','root@localhost.fr','root','admin'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol','member');
+INSERT INTO `member` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword','member'),(3,'Monsieur','monsieur@hotmail.fr','1234','member'),(4,'root','root@localhost.fr','root','admin'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol','member'),(6,'Yasuo','ff20@noob.lol','toxicaf','member'),(7,'Pierrot','fff@f.com','f','member'),(8,'Bonjour','hello@world.php','rm -rf /','member'),(9,'haPpybiRb','large@seed.ium','AAAAAAAAAAAAAAH','member'),(10,'cutyDoggo','many@boops.woof','suchwow','member'),(11,'WOW','VERY@GREAT.c0m','sUcHpErFeCt','member'),(12,'ok','ok@ok.ok','ok','member'),(13,'a','b@c.d','efgh','member'),(14,'pierrot','lecorbeau@toutnoir.fr','croaaa','member');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -86,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-14 15:47:54
+-- Dump completed on 2018-02-14 22:54:59

@@ -38,7 +38,6 @@ if (isset($_POST['connect'])) {
         if ($userExist == 1) {
             //$userInfo = $requeteUser->fetch(PDO::FETCH_ASSOC);
             $_SESSION['id'] = $row['id'];
-            var_dump($row);
             header("Location: profile.php?id=".$_SESSION['id']);
         }
         else {
