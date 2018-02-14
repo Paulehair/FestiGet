@@ -2,6 +2,7 @@
   width: 98vw;
   height: 100vh;
   position: relative;
+    font-family: "Open Sans";
 }
 
 /* <!-- LOGO --> */
@@ -222,7 +223,6 @@
   font-family: "Open sans";
   font-weight: bold;
 }
-
 /* <!-- RECTANGLE ROSE --> */
 
 .rectangleRose {
