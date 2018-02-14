@@ -238,9 +238,13 @@
   font-family: "Open sans";
   font-weight: lighter;
   text-align: center;
-  font-size: 22px;
+  font-size: 28px;
   margin-top: 53px;
   margin-left: -70px;
+}
+
+.festival_date {
+    font-size: 20px;
 }
 
 .carreRose {
@@ -258,16 +262,6 @@
   width: 930px;
   height: 132px;
   border: 3px solid #ED6B86;
-}
-
-.festival28F {
-  position: relative;
-  font-family: "Open sans";
-  font-weight: lighter;
-  text-align: center;
-  font-size: 22px;
-  margin-top: -80px;
-  margin-left: -310px;
 }
 
 .carreRose2 {
