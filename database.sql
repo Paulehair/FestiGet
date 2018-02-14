@@ -51,13 +51,13 @@ INSERT INTO `fest` VALUES (1,'FestiCoquin','Dans ta chambre','13/02/2018','14/02
 UNLOCK TABLES;
 
 --
--- Table structure for table `members`
+-- Table structure for table `member`
 --
 
-DROP TABLE IF EXISTS `members`;
+DROP TABLE IF EXISTS `member`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `members` (
+CREATE TABLE `member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
@@ -68,13 +68,13 @@ CREATE TABLE `members` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `members`
+-- Dumping data for table `member`
 --
 
-LOCK TABLES `members` WRITE;
-/*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword','member'),(3,'Monsieur','monsieur@hotmail.fr','1234','member'),(4,'root','root@localhost.fr','root','admin'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol','member');
-/*!40000 ALTER TABLE `members` ENABLE KEYS */;
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES (1,'Rogeror','rogeroro@roromail.fr','coolpassword','member'),(3,'Monsieur','monsieur@hotmail.fr','1234','member'),(4,'root','root@localhost.fr','root','admin'),(5,'BigBear','poutinette@gmail.fr','jesaispaslol','member');
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
