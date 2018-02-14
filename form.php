@@ -59,7 +59,8 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
                             $stmt->bindValue(':mail', $_POST['mail']);
                             $stmt->bindValue(':mdp', $_POST['mdp']);
                             $stmt->execute();
-
+                            header("Location: connexion.php");
+                            exit;
                             $emptiness = "Inscription réussie !!";
                         }
                         else {
@@ -140,11 +141,12 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
             </table>
             <input type="submit" value="GO" name="formok">
         </form>
+        <a href="connexion.php">J'ai déjà un compte</a>
 
         <?php
         if (isset($emptiness))
         {
-            echo $emptiness;
+            echo "<br>" . $emptiness;
         }
         ?>
 
