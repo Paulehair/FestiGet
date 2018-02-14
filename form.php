@@ -11,8 +11,7 @@
 
 require_once ('connection.php');
 
-if (isset($_POST['formok']))
-{
+if (isset($_POST['formok'])) {
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $mail = htmlspecialchars($_POST['mail']);
     $mail2 = htmlspecialchars($_POST['mail2']);
@@ -20,28 +19,22 @@ if (isset($_POST['formok']))
     $mdp2 = sha1($_POST['mdp2']);
 
     //Condition pour vérifier que les champs ne sont pas vides
-    if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mail2']) && !empty($_POST['mdp']) && !empty($_POST['mdp2']))
-    {
+    if (!empty($_POST['pseudo']) && !empty($_POST['mail']) && !empty($_POST['mail2']) && !empty($_POST['mdp']) && !empty($_POST['mdp2'])) {
         //Condition pour vérifier que le pseudo ne dépasse pas 255 caractères
         $pseudolen = strlen($pseudo);
-        if ($pseudolen <= 255)
-        {
+        if ($pseudolen <= 255) {
             //Condition pour vérifier que les 2 adresses mails sont bien les mêmes
-            if ($mail == $mail2)
-            {
+            if ($mail == $mail2) {
                 //Condition avec FILTER_VALIDATE_EMAIL pour vérifier que c'est bien une addresse mail
-                if (filter_var($mail, FILTER_VALIDATE_EMAIL))
-                {
+                if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     //Condition pour vérifier si le mail existe déjà ou pas
                     $requeteMail = $bdd->prepare("SELECT * FROM member WHERE mail = ?");
                     $requeteMail->execute(array($mail));
                     $mailExist = $requeteMail->rowCount();
 
-                    if ($mailExist == 0)
-                    {
+                    if ($mailExist == 0) {
                         //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
-                        if ($mdp == $mdp2)
-                        {
+                        if ($mdp == $mdp2) {
 
                             $requete = "INSERT INTO
                               `member`
@@ -58,33 +51,22 @@ if (isset($_POST['formok']))
 
                             $emptiness = "Inscription réussie !!";
                         }
-                        else
-                        {
+                        else {
                             $emptiness = "Vos mots de passe ne correspondent pas";
                         }
-                    }
-                    else
-                    {
+                    } else {
                         $emptiness = "Le mail est déjà utilisé";
                     }
-                }
-                else
-                {
+                } else {
                     $emptiness = "Votre adresse mail n'est pas valide";
                 }
-            }
-            else
-            {
+            } else {
                 $emptiness = "Vos addresses mail ne correspondent pas";
             }
-        }
-        else
-        {
+        } else {
             $emptiness = "Votre pseudo ne doit pas dépasser 255 caractères !!";
         }
-    }
-    else
-    {
+    } else {
         $emptiness = "Remplissez tous les champs !! ";
     }
 }

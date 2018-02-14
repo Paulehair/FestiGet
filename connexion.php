@@ -8,17 +8,17 @@
 ?>
 
 <?php
+session_start();
 
 require_once ('connection.php');
 
-if (isset($_POST['connect']))
-{
+if (isset($_POST['connect'])) {
     $mail = htmlspecialchars($_POST['mail']);
     $mdp = sha1($_POST['mdp']);
 
-    //On vérifie que les champs ne sont pas vides
+    //Check if input is not empty
     if (!empty($mail) && !empty($mdp)) {
-        //On récupère les mail et mdp dans la bdd
+        //Get mail and password from db
         $requeteUser = "SELECT
             `mail`,
             `password`
@@ -34,19 +34,21 @@ if (isset($_POST['connect']))
         $requeteUser->execute();
         $row = $requeteUser->fetch(PDO::FETCH_ASSOC);
 
+        //Check if email already exists in db
         $userExist = $requeteUser->rowcount();
-        if ($userExist == 1)
-        {
-            echo "lol";
+        if ($userExist == 1) {
+            $userInfo = $requeteUser->fetch();
+            $_SESSION['id'] = $userInfo['id'];
+            $_SESSION['pseudo'] = $userInfo['pseudo'];
+            $_SESSION['mail'] = $userInfo['mail'];
+            $_SESSION['privilege'] = $userInfo['privilege'];
+            header("Location: profile.php?id=".$_SESSION['id']);
         }
-        else
-        {
+        else {
             $emptiness = "Mauvais mail ou mot de passe !";
         }
-
     }
-    else
-    {
+    else {
       $emptiness = "Tous les champs doivent être complétés !";
     }
 }
@@ -65,7 +67,7 @@ if (isset($_POST['connect']))
 <body>
 <div>
     <form method="post" action="">
-        <input type="text" name="mail" placeholder="Mail">
+        <input type="email" name="mail" placeholder="Mail">
         <input type="password" name="mdp" placeholder="Password">
         <input type="submit" name="connect" value="Se connecter">
     </form>
