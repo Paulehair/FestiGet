@@ -8,15 +8,15 @@ $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
 $i = 0;
 while (isset($data[$i])) {
-    $i++;
     if ($data[$i]["id"] == $_GET["id"]) {
         $index = $i;
     }
-    if (!isset($index)) {
-        echo "The product you are looking for doesn't exist!<br>";
-        echo "<a href='./home.php'>Go back to the homepage</a>";
-        exit;
-    }
+    $i++;
+}
+if (!isset($index)) {
+    echo "The product you are looking for doesn't exist!<br>";
+    echo "<a href='./home.php'>Go back to the homepage</a>";
+    exit;
 }
 
 ?>
