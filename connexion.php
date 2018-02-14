@@ -38,7 +38,7 @@ if (isset($_POST['connect'])) {
         if ($userExist == 1) {
             //$userInfo = $requeteUser->fetch(PDO::FETCH_ASSOC);
             $_SESSION['id'] = $row['id'];
-            header("Location: profile.php?id=".$_SESSION['id']);
+            header("Location: home.php");
         }
         else {
             $emptiness = "Mauvais mail ou mot de passe !";
@@ -67,6 +67,7 @@ if (isset($_POST['connect'])) {
         <input type="password" name="mdp" placeholder="Password">
         <input type="submit" name="connect" value="Se connecter">
     </form>
+    <a href="form.php">Créer un compte</a>
 
     <?php
     if (isset($emptiness))

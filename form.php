@@ -124,11 +124,11 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
             </table>
             <input class="input" type="submit" value="GO" name="formok">
         </form>
+        <a href="connexion.php">J'ai déjà un compte</a>
 
         <?php
-        if (isset($emptiness))
-        {
-            echo '<p class = "message">'.$emptiness.'</p>';
+        if (isset($emptiness)) {
+            echo '<p class = "message">' . $emptiness . '</p>';
         }
         ?>
 
