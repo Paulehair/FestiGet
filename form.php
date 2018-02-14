@@ -28,10 +28,24 @@ if (isset($_POST['formok'])) {
                 //Condition avec FILTER_VALIDATE_EMAIL pour vérifier que c'est bien une addresse mail
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     //Condition pour vérifier si le mail existe déjà ou pas
-                    $requeteMail = $bdd->prepare("SELECT * FROM member WHERE mail = ?");
-                    $requeteMail->execute(array($mail));
-                    $mailExist = $requeteMail->rowCount();
 
+
+                    //$requeteMail = $bdd->prepare("SELECT * FROM member WHERE mail = ?");
+                    //$requeteMail->execute(array($mail));
+                    $requeteMail = "SELECT
+                        *
+                      FROM
+                        `member`
+                      WHERE
+                        `mail` = :mail
+                        ;";
+                    $stmt = $connection->prepare($requeteMail);
+                    $stmt->bindValue(':mail', $_POST['mail']);
+                    $stmt->execute();
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    $mailExist = $requeteMail->rowCount();
+                    var_dump($mailExist);
                     if ($mailExist == 0) {
                         //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
                         if ($mdp == $mdp2) {
