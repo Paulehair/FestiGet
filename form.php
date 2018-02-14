@@ -9,7 +9,7 @@
 
 <?php
 
-require_once ('db-init.php');
+require_once ('connection.php');
 
 if (isset($_POST['formok']))
 {
@@ -65,7 +65,7 @@ if (isset($_POST['formok']))
                     }
                     else
                     {
-                        $emptiness = "LE mail est déjà utilisé"
+                        $emptiness = "Le mail est déjà utilisé";
                     }
                 }
                 else
