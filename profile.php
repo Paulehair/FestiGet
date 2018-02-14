@@ -17,6 +17,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     $requeteUser->bindValue(':id', $_GET['id']);
     $requeteUser->execute();
     $row = $requeteUser->fetch(PDO::FETCH_ASSOC);
+    var_dump($row);
     ?>
 
     <!DOCTYPE html>
@@ -34,7 +35,6 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 
     <p>Pseudo <?=$row['pseudo']?></p>
     <p>Mail <?=$row['mail']?></p>
-    <p>Phone number <?=$row['phone']?></p>
     <?php
     if (isset($emptiness))
     {
