@@ -6,15 +6,9 @@
     <schema id="3" parent="1" name="mysql"/>
     <schema id="4" parent="1" name="performance_schema"/>
     <schema id="5" parent="1" name="sys"/>
-    <schema id="6" parent="1" name="000_si">
+    <schema id="6" parent="1" name="000_SI_database">
       <Current>1</Current>
     </schema>
-    <schema id="7" parent="1" name="000_sitest"/>
-    <schema id="8" parent="1" name="000_sitest2"/>
-    <schema id="9" parent="1" name="new_schema">
-      <Visible>1</Visible>
-    </schema>
-    <schema id="10" parent="1" name="sakila"/>
-    <schema id="11" parent="1" name="world"/>
+    <schema id="7" parent="1" name="si-201802"/>
   </database-model>
 </dataSource>

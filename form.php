@@ -9,7 +9,7 @@
 
 <?php
 
-require_once ('db-init.php');
+require_once ('connection.php');
 
 if (isset($_POST['formok']))
 {
@@ -32,10 +32,40 @@ if (isset($_POST['formok']))
                 //Condition avec FILTER_VALIDATE_EMAIL pour vérifier que c'est bien une addresse mail
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL))
                 {
-                    //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
-                    if ($mdp !== $mdp2)
+                    //Condition pour vérifier si le mail existe déjà ou pas
+                    $requeteMail = $bdd->prepare("SELECT * FROM member WHERE mail = ?");
+                    $requeteMail->execute(array($mail));
+                    $mailExist = $requeteMail->rowCount();
+
+                    if ($mailExist == 0)
                     {
-                        $emptiness = "Vos mots de passe ne correspondent pas";
+                        //Condition pour vérifier que les 2 mots de passe sont bien les mêmes
+                        if ($mdp == $mdp2)
+                        {
+
+                            $requete = "INSERT INTO
+                              `member`
+                              (`pseudo`, `mail`, `password`)
+                              VALUES
+                              (:pseudo, :mail, :mdp)
+                              ;";
+
+                            $stmt = $conn->prepare($requete);
+                            $stmt->bindValue(':pseudo', $_POST['pseudo']);
+                            $stmt->bindValue(':mail', $_POST['mail']);
+                            $stmt->bindValue(':mdp', $_POST['mdp']);
+                            $stmt->execute();
+
+                            $emptiness = "Inscription réussie !!";
+                        }
+                        else
+                        {
+                            $emptiness = "Vos mots de passe ne correspondent pas";
+                        }
+                    }
+                    else
+                    {
+                        $emptiness = "Le mail est déjà utilisé";
                     }
                 }
                 else
@@ -79,7 +109,7 @@ if (isset($_POST['formok']))
                         <label for="pseudo">Pseudo :</label>
                     </td>
                     <td>
-                        <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo" value="<?php if (isset($pseudo)) {echo $pseudo}?>">
+                        <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo" value="<?php if (isset($pseudo)) {echo $pseudo;}?>">
                     </td>
                 </tr>
                 <tr>
@@ -87,15 +117,15 @@ if (isset($_POST['formok']))
                         <label for="mail">Mail :</label>
                     </td>
                     <td>
-                        <input id="mail" type="email" placeholder="Mail" name="mail">
+                        <input id="mail" type="email" placeholder="Mail" name="mail" value="<?php if (isset($mail)) {echo $mail;}?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="mail2">Mail de confirmation :</label>
+                        <label for="mail2"> Mail de confirmation :</label>
                     </td>
                     <td>
-                        <input id="mail2" type="email" placeholder="Mail de confirmation" name="mail2">
+                        <input id="mail2" type="email" placeholder="Mail de confirmation" name="mail2" value="<?php if (isset($mail2)) {echo $mail2;}?>">
                     </td>
                 </tr>
                 <tr>
