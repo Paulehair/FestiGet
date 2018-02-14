@@ -20,8 +20,7 @@ if (isset($_POST['connect'])) {
     if (!empty($mail) && !empty($mdp)) {
         //Get mail and password from db
         $requeteUser = "SELECT
-            `mail`,
-            `password`
+            *
         FROM
             `member`
         WHERE
@@ -37,11 +36,9 @@ if (isset($_POST['connect'])) {
         //Check if email already exists in db
         $userExist = $requeteUser->rowcount();
         if ($userExist == 1) {
-            $userInfo = $requeteUser->fetch();
-            $_SESSION['id'] = $userInfo['id'];
-            $_SESSION['pseudo'] = $userInfo['pseudo'];
-            $_SESSION['mail'] = $userInfo['mail'];
-            $_SESSION['privilege'] = $userInfo['privilege'];
+            //$userInfo = $requeteUser->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['id'] = $row['id'];
+            var_dump($row);
             header("Location: profile.php?id=".$_SESSION['id']);
         }
         else {
