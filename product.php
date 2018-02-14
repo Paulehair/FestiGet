@@ -3,7 +3,22 @@
 require_once "connection.php";
 
 // RETRIEVE DATA FROM DATABASE
-$data_fetcher = $connection->prepare("SELECT id, name, place, start, end, ticket_count_d1, ticket_count_d2, ticket_count_d3 FROM fest");
+$data_fetcher = $connection->prepare("
+SELECT
+  `id`,
+  name,
+  `place`,
+  `start`,
+  `end`,
+  `description`,
+  `ticket_count_d1`,
+  `ticket_count_d2`,
+  `ticket_count_d3`,
+  `ticket_price_d1`,
+  `ticket_price_d2`,
+  `ticket_price_d3`
+FROM
+  `fest`");
 $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
 $i = 0;
@@ -62,11 +77,14 @@ if (!isset($index)) {
                          </div>
                          <p class="textPosition3"><?php echo $data[$index]['place'] ?>, <span class="franceBold">France</span></p>
                      </div>
+                     <div class="description_container">
+                         <p class="decription" style="margin-left: 350px; margin-top: 50px; font-family: 'Open Sans';"><?php echo $data[$index]["description"] ?></p>
+                     </div>
                      <!-- RECTANGLE ROSE -->
                      <div class="rectangle">
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d1'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose">
-                                 <p class="festival27F">Day 1</p>
+                                 <p class="festival27F">Jour 1 <?php if ($data[$index]['ticket_count_d1'] != -1) {echo " - " . $data[$index]["ticket_price_d1"] . "€";} ?></p>
                              </div>
                              <div class="carreRose">
                                  <img class="plus" src="assets/img/plus.png" alt="">
@@ -74,7 +92,7 @@ if (!isset($index)) {
                          </div>
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d2'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose2">
-                                <p class="festival27F">Day 2</p>
+                                <p class="festival27F">Jour 2 <?php if ($data[$index]['ticket_count_d2'] != -1) {echo " - " . $data[$index]["ticket_price_d2"] . "€";} ?></p>
                              </div>
                              <div class="carreRose">
                                  <img class="plus" src="assets/img/plus.png" alt="">
@@ -82,7 +100,7 @@ if (!isset($index)) {
                          </div>
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d3'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose3">
-                                 <p class="festival27F">Day 3</span></p>
+                                 <p class="festival27F">Jour 3 <?php if ($data[$index]['ticket_count_d3'] != -1) {echo " - " . $data[$index]["ticket_price_d3"] . "€";} ?></p>
                              </div>
                              <div class="carreRose">
                                  <img class="plus" src="assets/img/plus.png" alt="">

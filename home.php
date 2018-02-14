@@ -3,7 +3,15 @@
 require_once "connection.php";
 
 // RETRIEVE DATA FROM DATABASE
-$data_fetcher = $connection->prepare("SELECT id, name, place, start, end FROM fest");
+$data_fetcher = $connection->prepare("
+SELECT
+  `id`,
+  `name`,
+  `place`,
+  `start`,
+  `end`
+FROM
+  `fest`");
 $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
 
