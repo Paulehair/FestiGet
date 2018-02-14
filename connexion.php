@@ -9,15 +9,41 @@
 
 <?php
 
-require_once ('db-init.php');
+require_once ('connection.php');
 
 if (isset($_POST['connect']))
 {
-    $mailConnect = htmlspecialchars($_POST['mailConnect']);
-    $mdpConnect = sha1($_POST['mdpConnect']);
+    $mail = htmlspecialchars($_POST['mail']);
+    $mdp = sha1($_POST['mdp']);
 
-    if (!empty($mailConnect) && !empty($mdpConnect)) {
-        $requeteUser =
+    //On vérifie que les champs ne sont pas vides
+    if (!empty($mail) && !empty($mdp)) {
+        //On récupère les mail et mdp dans la bdd
+        $requeteUser = "SELECT
+            `mail`,
+            `password`
+        FROM
+            `member`
+        WHERE
+            `password` = :mdp and
+            `mail` = :mail
+        ;";
+        $requeteUser = $connection->prepare($requeteUser);
+        $requeteUser->bindValue(':mail', $_POST['mail']);
+        $requeteUser->bindValue(':mdp', $_POST['mdp']);
+        $requeteUser->execute();
+        $row = $requeteUser->fetch(PDO::FETCH_ASSOC);
+
+        $userExist = $requeteUser->rowcount();
+        if ($userExist == 1)
+        {
+            echo "lol";
+        }
+        else
+        {
+            $emptiness = "Mauvais mail ou mot de passe !";
+        }
+
     }
     else
     {
@@ -39,8 +65,8 @@ if (isset($_POST['connect']))
 <body>
 <div>
     <form method="post" action="">
-        <input type="text" name="mailConnect" placeholder="Mail">
-        <input type="password" name="mdpConnect" placeholder="Password">
+        <input type="text" name="mail" placeholder="Mail">
+        <input type="password" name="mdp" placeholder="Password">
         <input type="submit" name="connect" value="Se connecter">
     </form>
 
