@@ -1,0 +1,43 @@
+.center {
+    text-align: center;
+}
+
+
+.title {
+    font-family: OpenSans-SemiBold;
+    font-size: 35px;
+    margin: 2em 0;
+}
+
+.name {
+    font-family: OpenSans-Light;
+    margin-bottom: 1em;
+}
+
+.mail {
+    font-family: OpenSans-Light;
+    margin-bottom: 100px;
+}
+
+.italic {
+    font-family: OpenSans-LightItalic;
+}
+
+.containerButton {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    padding: 7px;
+    height: 20px;
+    width: 100px;
+    border-radius: 4px;
+    background-color: #ED6B86;
+}
+
+.button > a {
+    font-family: OpenSans-Regular;
+    font-size: 12px;
+    color: #fff;
+}

@@ -58,9 +58,30 @@ if (isset($_SESSION['id'])) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/font-face.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/edit.css">
         <title>Edit Profile</title>
     </head>
     <body>
+    <div class="header">
+        <div class="logo">
+            <p class="festiget">FESTI<span class="pink">GET</span></p>
+            <p class="logoText">get to your festival</p>
+        </div>
+        <div class="headerItems">
+            <div class="search">
+                <input type="text" class="searchBar" placeholder="Search...">
+            </div>
+            <div class="card">
+                <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
+            </div>
+            <div class="profile">
+                <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
+            </div>
+        </div>
+    </div>
     <div>
         <h2>Hello <?=$row['pseudo']?>!</h2>
         <form method="POST" action="">

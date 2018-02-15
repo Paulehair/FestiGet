@@ -55,10 +55,28 @@ if (isset($_POST['connect'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/font-face.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/form.css">
     <title>Connect</title>
 </head>
 <body>
+<div class="header">
+    <div class="logo">
+        <p class="festiget">FESTI<span class="pink">GET</span></p>
+        <p class="logoText">get to your festival</p>
+    </div>
+    <div class="headerItems">
+        <div class="search">
+            <input type="text" class="searchBar" placeholder="Search...">
+        </div>
+        <div class="card">
+            <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
+        </div>
+        <div class="profile">
+            <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
+        </div>
+    </div>
+</div>
 <div class="center">
     <form class="form" method="post" action="">
         <input class="input" type="email" name="mail" placeholder="Mail">
