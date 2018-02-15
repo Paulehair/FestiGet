@@ -11,7 +11,14 @@ SELECT
   `name`,
   `place`,
   `start`,
-  `end`
+  `end`,
+  `description`,
+  `ticket_count_d1`,
+  `ticket_count_d2`,
+  `ticket_count_d3`,
+  `ticket_price_d1`,
+  `ticket_price_d2`,
+  `ticket_price_d3`
 FROM
   `fest`");
 $data_fetcher->execute();
@@ -29,9 +36,10 @@ if (!isset($_SESSION['id'])) {
         <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="assets/css/reset.css">
             <link rel="stylesheet" href="assets/css/home.css">
             <link rel="stylesheet" href="assets/css/flexboxgrid.min.css">
-            <link rel="stylesheet" href="assets/css/reset.css">
+
         <style>
             input[type="text"] {
                 position: absolute;
@@ -51,28 +59,30 @@ if (!isset($_SESSION['id'])) {
                             <li class="headerRightListItem"><a href="basket.php"><img class="Cadi"src="img/Cadi.png" alt="pp" title="pp"></a></li>
                             <li class="headerRightListItem"><a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="img/PP.png" alt=""></a></li>
                         </ul>
-                    <div class="menu">
-                        <ul class="menuList">
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Month</span></a></li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Country</span> </a></li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Music</span> </a></li>
-                        </ul>
-                    </div>
                 </div>
             </section>
+            <h1 class="titreFest">Choose your fest !</h1>
             <section class="festivalGallery">
             <?php
 
             // FILL ARTICLE TEMPLATES WITH DATA INFORMATIONS AND PRINT IT
             $i = 0;
             while (isset($data[$i])) {
-                echo "<a class='Gallery' href='product.php?id=" . $data[$i]["id"] . "'>";
-                echo "<img class='GalleryContent' src='img/Festival1.jpg'>";
+                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "'> " ;
+                echo "<img class='galleryContent' src='img/Festival1.jpg'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
+                echo "<div class='articles'>
+                <p> " . $data[$i]['name'] . "  </p>
+                <p>Spot : " . $data[$i]['place'] . " </p>
+                <p>From " . $data[$i]['start'] . " to " . $data[$i]['end'] . " </p>
+                <p>Description : " .  $data[$i]['description'] . " </p>
+                <p>Tickets number day 1 : " . $data[$i]['ticket_count_d1'] . " </p>
+                <p>Tickets number day 2 : " . $data[$i]['ticket_count_d2'] . " </p>
+                <p>Ticket price day 1 : " . $data[$i]['ticket_price_d1'] ."$".  "</p>
+                <p>Ticket price day 2 : " . $data[$i]['ticket_price_d2']  ."$". "</p> 
+                </div>"  ;
                 echo "</a>";
-                echo "</div>";
                 $i++;
             }
             ?>
