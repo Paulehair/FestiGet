@@ -1,13 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pauleherman
- * Date: 14/02/2018
- * Time: 09:56
- */
-?>
-
-<?php
 session_start();
 
 require_once ('connection.php');
@@ -40,6 +31,8 @@ if (isset($_POST['connect'])) {
             session_start();
             session_unset();
             $_SESSION['id'] = $row['id'];
+            $_SESSION['pseudo'] = $row['pseudo'];
+            $_SESSION['mail'] = $row['mail'];
             header("Location: home.php");
         }
         else {

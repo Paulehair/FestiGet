@@ -32,16 +32,17 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 </head>
 <body>
 <div>
-    <h2>Bienvenue <?=$row['pseudo']?>!</h2>
+    <h2>Welcome <?=$row['pseudo']?>!</h2>
 
     <p>Pseudo <?=$row['pseudo']?></p>
     <p>Mail <?=$row['mail']?></p>
     <?php
+        //check if 'id' exists = someone is connected AND if id of session equals id of page
         if (isset($_SESSION['id']) && $row['id'] == $_SESSION['id']) {
             ?>
-            <a class="linkEdit" href="#">Editer mon profil</a>
+            <a class="linkEdit" href="edit.php">Edit profile</a>
             </br>
-            <a href="deconnect.php">Se déconnecter</a>
+            <a href="deconnect.php">Deconnect</a>
             <?php
         } else {
             echo "lol";
