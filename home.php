@@ -29,9 +29,10 @@ if (!isset($_SESSION['id'])) {
         <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <link rel="stylesheet" href="assets/css/home.css">
-            <link rel="stylesheet" href="assets/css/flexboxgrid.min.css">
-            <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/font-face.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/home.css">
         <style>
             input[type="text"] {
                 position: absolute;
@@ -41,26 +42,31 @@ if (!isset($_SESSION['id'])) {
     </head>
     <body>
         <header>
-            <section class="homePage">
-                <div class="hearderLogo">
-                    <h1 class="H1">FESTI<span class="Getcolor">GET</span></h1>
-                    <h2 class="H2">get to your festival</h2>
-                    <div class="headerRight">
-                        <ul class="headerRightList">
-                            <li class="headerRightListItem"> <em><input class="Search" type="text" name=""  value="Search..."></em></li>
-                            <li class="headerRightListItem"><a href="basket.php"><img class="Cadi"src="img/Cadi.png" alt="pp" title="pp"></a></li>
-                            <li class="headerRightListItem"><a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="img/PP.png" alt=""></a></li>
-                        </ul>
-                    <div class="menu">
-                        <ul class="menuList">
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Month</span></a></li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Country</span> </a></li>
-                            <li class="menuListItem"><a href="#"> <span class="Itemcolor">Music</span> </a></li>
-                        </ul>
+            <div class="header">
+                <div class="logo">
+                    <p class="festiget">FESTI<span class="pink">GET</span></p>
+                    <p class="logoText">get to your festival</p>
+                </div>
+                <div class="headerItems">
+                    <div class="search">
+                        <input type="text" class="searchBar" placeholder="Search...">
+                    </div>
+                    <div class="card">
+                        <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
+                    </div>
+                    <div class="profile">
+                        <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="menu">
+                <ul class="menuList">
+                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>
+                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Month</span></a></li>
+                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Country</span> </a></li>
+                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Music</span> </a></li>
+                </ul>
+            </div>
             <section class="festivalGallery">
             <?php
 

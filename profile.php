@@ -45,34 +45,40 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
             <input type="text" class="searchBar" placeholder="Search...">
         </div>
         <div class="card">
-            <a href=""><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
+            <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
         </div>
         <div class="profile">
-            <a href=""><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
+            <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
         </div>
     </div>
 </div>
-<div>
-    <h2 class="title">Welcome <?=$row['pseudo']?>!</h2>
+<div class="center">
+    <div class="container">
+        <h2 class="title">Welcome <?=$row['pseudo']?>!</h2>
 
-    <p class = "name">Pseudo <?=$row['pseudo']?></p>
-    <p class="mail">Mail <?=$row['mail']?></p>
-    <?php
-        //check if 'id' exists = someone is connected AND if id of session equals id of page
-        if (isset($_SESSION['id']) && $row['id'] == $_SESSION['id']) {
+        <p class = "name"><span class="italic">Pseudo </span><?=$row['pseudo']?></p>
+        <p class="mail"><span class="italic">Mail </span><?=$row['mail']?></p>
+        <?php
+            //check if 'id' exists = someone is connected AND if id of session equals id of page
+            if (isset($_SESSION['id']) && $row['id'] == $_SESSION['id']) {
+                ?>
+                <div class="containerButton">
+                    <div class="button">
+                        <a class="linkEdit" href="edit.php">Edit profile</a>
+                    </div>
+                    <div class= "button">
+                        <a href="deconnect.php">Deconnect</a>
+                    </div>
+                    <div class= "button">
+                        <a href="home.php">Home</a>
+                    </div>
+                </div>
+                <?php
+            } else {
+                echo "lol";
+            }
             ?>
-            <a class="linkEdit" href="edit.php">Edit profile</a>
-            <br>
-            <a href="deconnect.php">Deconnect</a>
-            <br>
-            <a href="home.php">Home</a>
-            <?php
-        } else {
-            echo "lol";
-        }
-        ?>
-
-
+    </div>
 </div>
 </body>
 </html>

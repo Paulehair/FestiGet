@@ -48,24 +48,31 @@ if (!isset($index)) {
     <head>
         <meta charset="utf-8">
         <title>Festiget</title>
-        <link rel="stylesheet" href="assets/css/product.css">
-        <link rel="shortcut icon" href=".ico">
         <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/font-face.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/profile.css">
     </head>
     <body>
          <header class="header">
              <div class="Container">
                  <section class="homePage">
-                     <!-- LOGO -->
-                     <div class="headerLogo">
-                         <h1 class="H1">FESTI<span class="getcolor">GET</span></h1>
-                         <h2 class="H2">get to your festival</h2>
-                     </div>
-                     <!-- RECHERCHER -->
-                     <div class="headerRechercher">
-                         <img class="cadi" src="assets/img/cartcadi.png" alt="">
-                         <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="assets/img/pp.png" alt="pp" title="pp"></a>
-                         <h1 class="Rechercher">Search….</h1>
+                     <div class="header">
+                         <div class="logo">
+                             <p class="festiget">FESTI<span class="pink">GET</span></p>
+                             <p class="logoText">get to your festival</p>
+                         </div>
+                         <div class="headerItems">
+                             <div class="search">
+                                 <input type="text" class="searchBar" placeholder="Search...">
+                             </div>
+                             <div class="card">
+                                 <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
+                             </div>
+                             <div class="profile">
+                                 <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
+                             </div>
+                         </div>
                      </div>
                      <!-- TEXTE FESTIVAL -->
                      <div class="textNomFestival">
