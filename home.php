@@ -71,33 +71,22 @@ if (!isset($_SESSION['id'])) {
                     </div>
                 </div>
             </div>
-            <div class="menu">
-                <ul class="menuList">
-                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>
-                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Month</span></a></li>
-                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Country</span> </a></li>
-                    <li class="menuListItem"><a href="#"> <span class="Itemcolor">Music</span> </a></li>
-                </ul>
-            </div>
             <section class="festivalGallery">
             <?php
 
             // FILL ARTICLE TEMPLATES WITH DATA INFORMATIONS AND PRINT IT
             $i = 0;
+            echo "<div style='width: 100%; display:flex; margin: 0 200px; flex-wrap: wrap'>";
             while (isset($data[$i])) {
-                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "'>" ;
-                echo "<img class='galleryContent' src='img/Festival1.jpg'>";
+                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "' style='margin: 10px 1%;width:31%;background:#FDD;border-radius: 7px'>" ;
+                echo "<img class='galleryContent' src='img/Festival1.jpg' style='border-radius: 7px 7px 0 0'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
                 echo "<div class='articles'>
-                <p> " . $data[$i]['name'] . "  </p>
-                <p>Spot : " . $data[$i]['place'] . " </p>
-                <p>From " . $data[$i]['start'] . " to " . $data[$i]['end'] . " </p>
-                <p>Description : " .  $data[$i]['description'] . " </p>
-                <p>Tickets number day 1 : " . $data[$i]['ticket_count_d1'] . " </p>
-                <p>Tickets number day 2 : " . $data[$i]['ticket_count_d2'] . " </p>
-                <p>Ticket price day 1 : " . $data[$i]['ticket_price_d1'] ."$".  "</p>
-                <p>Ticket price day 2 : " . $data[$i]['ticket_price_d2']  ."$". "</p>
+                <h2 style='font-size: 20px; margin-bottom: 20px'> " . $data[$i]['name'] . "  </h2>
+                <p style='margin-bottom: 6px;width: 320px'>Spot : " . $data[$i]['place'] . " </p>
+                <p style='margin-bottom: 6px;width: 320px'>" .  $data[$i]['description'] . " </p>
+                <p style='margin-bottom: 6px;width: 320px'>Ticket price for 1 day: " . $data[$i]['ticket_price_d1'] ."$".  "</p>
                 </div>"  ;
                 if ($_SESSION['privilege'] === 'admin') {
                     echo "<form action='delete_fest.php' method='POST'>";
@@ -107,11 +96,12 @@ if (!isset($_SESSION['id'])) {
                 }
                 echo "</a>";
                 $i++;
-                }
-                if ($_SESSION['privilege'] === 'admin') {
-                    echo '<a href="HUE_HUE_HUE.php" class="ATOMIC_BOMB" style="margin-top: 1000px;background:red;width: 200px;height: 200px;border-radius:100%;text-align:center;padding:70px 20px;box-sizing: border-box;font-size:30px;">A.T.O.M.I.C. .B.O.M.B</a>';
-                }
-                ?>
+            }
+            echo "</div>";
+            if ($_SESSION['privilege'] === 'admin') {
+                echo '<a href="HUE_HUE_HUE.php" class="ATOMIC_BOMB" style="margin-top: 1000px;background:red;width: 200px;height: 200px;border-radius:100%;text-align:center;padding:70px 20px;box-sizing: border-box;font-size:30px;">A.T.O.M.I.C. .B.O.M.B</a>';
+            }
+            ?>
             </section>
         </header>
     </body>
