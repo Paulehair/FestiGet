@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once ('connection.php');
+require_once('connect_server.php');
 
-//Check if 'id' exists = someone is connected, else return to connexion.php
+//Check if 'id' exists = someone is connected, else return to connect.php
 if (isset($_SESSION['id'])) {
     //get all datas from table member
     $requeteUser = "
@@ -133,6 +133,6 @@ if (isset($_SESSION['id'])) {
     </html>
     <?php
 } else {
-    header("Location: connexion.php");
+    header("Location: connect.php");
 }
 ?>

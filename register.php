@@ -7,7 +7,7 @@ if (isset($_SESSION["id"])) {
     exit;
 }
 
-require_once ('connection.php');
+require_once('connect_server.php');
 
 if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
     $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -53,7 +53,7 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
                             $stmt->bindValue(':mail', $_POST['mail']);
                             $stmt->bindValue(':mdp', $_POST['mdp']);
                             $stmt->execute();
-                            header("Location: connexion.php");
+                            header("Location: connect.php");
                             exit;
                         }
                         else {
@@ -140,7 +140,7 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
             </table>
             <input class="input" type="submit" value="GO" name="formok">
         </form>
-        <a class="connectLink" href="connexion.php">J'ai déjà un compte</a>
+        <a class="connectLink" href="connect.php">J'ai déjà un compte</a>
 
         <?php
         if (isset($emptiness)) {

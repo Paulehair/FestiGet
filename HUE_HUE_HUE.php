@@ -1,6 +1,6 @@
 <?php
 
-require_once "connection.php";
+require_once "connect_server.php";
 
 session_start();
 

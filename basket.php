@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "connection.php";
+require_once "connect_server.php";
 
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
@@ -18,7 +18,7 @@ $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
 
 if (!isset($_SESSION['id'])) {
-    header("Location: connexion.php");
+    header("Location: connect.php");
 }
 ?>
 
@@ -37,10 +37,10 @@ if (!isset($_SESSION['id'])) {
 </head>
 <body>
     <div class="header">
-        <div class="logo">
+        <a href="home.php" class="logo">
             <p class="festiget">FESTI<span class="pink">GET</span></p>
             <p class="logoText">get to your festival</p>
-        </div>
+        </a>
         <div class="headerItems">
             <div class="search">
                 <input type="text" class="searchBar" placeholder="Search...">

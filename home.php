@@ -1,6 +1,6 @@
 <?php
 
-require_once "connection.php";
+require_once "connect_server.php";
 
 session_start();
 
@@ -30,7 +30,7 @@ $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
 
 if (!isset($_SESSION['id'])) {
-    header("Location: connexion.php");
+    header("Location: connect.php");
     exit;
 }
 
@@ -78,7 +78,7 @@ if (!isset($_SESSION['id'])) {
             $i = 0;
             echo "<div style='width: 100%; display:flex; margin: 0 200px; flex-wrap: wrap'>";
             while (isset($data[$i])) {
-                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "' style='margin: 10px 1%;width:31%;background:#FDD;border-radius: 7px'>" ;
+                echo "<a class='articlesHome' href='fest_card.php?id=" . $data[$i]["id"] . "' style='margin: 10px 1%;width:31%;background:#FDD;border-radius: 7px'>" ;
                 echo "<img class='galleryContent' src='img/Festival1.jpg' style='border-radius: 7px 7px 0 0'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";

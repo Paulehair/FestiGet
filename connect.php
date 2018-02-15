@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ('connection.php');
+require_once('connect_server.php');
 
 if (isset($_SESSION["id"])) {
     header("Location: home.php");
@@ -89,7 +89,7 @@ if (isset($_POST['connect'])) {
         <input class="input" type="password" name="mdp" placeholder="Password">
         <input class="input" type="submit" name="connect" value="Se connecter">
     </form>
-    <a class="connectLink" href="form.php">Créer un compte</a>
+    <a class="connectLink" href="register.php">Créer un compte</a>
 
     <?php
     if (isset($emptiness))

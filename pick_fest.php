@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once "connection.php";
+require_once "connect_server.php";
 
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("

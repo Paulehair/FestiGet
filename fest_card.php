@@ -1,11 +1,11 @@
 <?php
 
-require_once "connection.php";
+require_once "connect_server.php";
 
 session_start();
 
 if (!isset($_SESSION['id'])) {
-    header("Location: connexion.php");
+    header("Location: connect.php");
     exit;
 }
 
@@ -101,7 +101,7 @@ if (!isset($index)) {
                                  <p class="festival27F">Jour 1 <?php if ($data[$index]['ticket_count_d1'] != -1) {echo " - " . $data[$index]["ticket_price_d1"] . "€";} ?></p>
                                  <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=1">
+                             <a class="carreRose" style="display: block" href="pick_fest.php?id=<?= $_GET['id']?>&day=1">
                                  <img class="plus" src="assets/img/plus.png" alt="">
                              </a>
                          </div>
@@ -110,7 +110,7 @@ if (!isset($index)) {
                                 <p class="festival27F">Jour 2 <?php if ($data[$index]['ticket_count_d2'] != -1) {echo " - " . $data[$index]["ticket_price_d2"] . "€";} ?></p>
                                  <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=2">
+                             <a class="carreRose" style="display: block" href="pick_fest.php?id=<?= $_GET['id']?>&day=2">
                                  <img class="plus" src="assets/img/plus.png" alt="">
                              </a>
                          </div>
@@ -119,7 +119,7 @@ if (!isset($index)) {
                                  <p class="festival27F">Jour 3 <?php if ($data[$index]['ticket_count_d3'] != -1) {echo " - " . $data[$index]["ticket_price_d3"] . "€";} ?></p>
                                  <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=3">
+                             <a class="carreRose" style="display: block" href="pick_fest.php?id=<?= $_GET['id']?>&day=3">
                                  <img class="plus" src="assets/img/plus.png" alt="">
                              </a>
                          </div>

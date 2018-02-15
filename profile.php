@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ('connection.php');
+require_once('connect_server.php');
 
 //Check if 'id' exists and if its value is > 0 bc index starts at 1
 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -64,10 +64,10 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
                 ?>
                 <div class="containerButton">
                     <div class="button">
-                        <a class="linkEdit" href="edit.php">Edit profile</a>
+                        <a class="linkEdit" href="update_user.php">Edit profile</a>
                     </div>
                     <div class= "button">
-                        <a href="deconnect.php">Deconnect</a>
+                        <a href="disconnect.php">Disconnect</a>
                     </div>
                     <div class= "button">
                         <a href="home.php">Home</a>
