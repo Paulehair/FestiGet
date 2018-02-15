@@ -33,6 +33,7 @@ if (isset($_POST['connect'])) {
             $_SESSION['id'] = $row['id'];
             $_SESSION['pseudo'] = $row['pseudo'];
             $_SESSION['mail'] = $row['mail'];
+            $_SESSION['privilege'] = $row['privilege'];
             header("Location: home.php");
         }
         else {
@@ -88,7 +89,7 @@ if (isset($_POST['connect'])) {
     <?php
     if (isset($emptiness))
     {
-        echo $emptiness;
+        echo "<p>" . $emptiness . "</p>";
     }
     ?>
 
