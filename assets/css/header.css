@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo {
+    margin: 5px;
+}
+
+.festiget {
+    font-family: OpenSans-Light;
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+.pink {
+    color: #EF6985;
+    font-family: OpenSans-SemiBold;
+}
+
+.logoText {
+    color: #EF6985;
+    font-family: OpenSans-Light;
+}
+
+.headerItems {
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+}
+
+.search {
+    align-self: center;
+}
+
+.searchBar {
+    padding: 4px;
+}
+
+.searchBar::placeholder {
+    font-family: OpenSans-LightItalic;
+}
+
+.profile {
+    align-self: center;
+}
+
+.card {
+    align-self: center;
+}
