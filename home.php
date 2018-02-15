@@ -1,6 +1,9 @@
 <?php
 
 require_once "connection.php";
+
+session_start();
+
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
 SELECT
@@ -40,10 +43,9 @@ $data = $data_fetcher->fetchAll();
                     <div class="headerRight">
                         <ul class="headerRightList">
                             <li class="headerRightListItem"> <em><input class="Search" type="text" name=""  value="Search..."></em></li>
-                            <li class="headerRightListItem"><img class="Cadi"src="img/Cadi.png" alt=""></li>
-                            <li class="headerRightListItem"> <img class="PP" src="img/PP.png" alt=""></li>
+                            <li class="headerRightListItem"><img class="Cadi"src="img/Cadi.png" alt="pp" title="pp"></li>
+                            <li class="headerRightListItem"><a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="img/PP.png" alt=""></a></li>
                         </ul>
-                    </div>
                     <div class="menu">
                         <ul class="menuList">
                             <li class="menuListItem"><a href="#"> <span class="Itemcolor">ALL</span> </a> </li>

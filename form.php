@@ -90,7 +90,7 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/font-face.css">
     <link rel="stylesheet" href="assets/css/form.css">
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
     <div class = "center">
@@ -124,7 +124,7 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
             </table>
             <input class="input" type="submit" value="GO" name="formok">
         </form>
-        <a href="connexion.php">J'ai déjà un compte</a>
+        <a class="connectLink" href="connexion.php">J'ai déjà un compte</a>
 
         <?php
         if (isset($emptiness)) {

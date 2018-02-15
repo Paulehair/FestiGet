@@ -6,6 +6,7 @@ body{
     height: 100px;
     position: relative;
   }
+
   .headerLogo {
     font-family: "Open sans";
     position: relative;
@@ -24,6 +25,7 @@ body{
   color: #EF6985;
   font-weight: bold;
 }
+
 .H2 {
   margin-top: -15px;
   font-weight: lighter;

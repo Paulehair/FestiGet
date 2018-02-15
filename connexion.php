@@ -58,16 +58,19 @@ if (isset($_POST['connect'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/font-face.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+    <title>Connect</title>
 </head>
 <body>
-<div>
-    <form method="post" action="">
-        <input type="email" name="mail" placeholder="Mail">
-        <input type="password" name="mdp" placeholder="Password">
-        <input type="submit" name="connect" value="Se connecter">
+<div class="center">
+    <form class="form" method="post" action="">
+        <input class="input" type="email" name="mail" placeholder="Mail">
+        <input class="input" type="password" name="mdp" placeholder="Password">
+        <input class="input" type="submit" name="connect" value="Se connecter">
     </form>
-    <a href="form.php">Créer un compte</a>
+    <a class="connectLink" href="form.php">Créer un compte</a>
 
     <?php
     if (isset($emptiness))
