@@ -2,6 +2,8 @@
 
 require_once "connection.php";
 
+session_start();
+
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
 SELECT
@@ -57,7 +59,7 @@ if (!isset($index)) {
                      <!-- RECHERCHER -->
                      <div class="headerRechercher">
                          <img class="cadi" src="assets/img/cartcadi.png" alt="">
-                         <img class="PP" src="assets/img/pp.png" alt="">
+                         <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="assets/img/pp.png" alt="pp" title="pp"></a>
                          <h1 class="Rechercher">Search….</h1>
                      </div>
                      <!-- TEXTE FESTIVAL -->
