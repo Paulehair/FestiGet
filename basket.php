@@ -16,6 +16,10 @@ FROM
   `fest`");
 $data_fetcher->execute();
 $data = $data_fetcher->fetchAll();
+
+if (!isset($_SESSION['id'])) {
+    header("Location: connexion.php");
+}
 ?>
 
 <!doctype html>
