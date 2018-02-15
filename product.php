@@ -10,7 +10,7 @@ session_start();
 $data_fetcher = $connection->prepare("
 SELECT
   `id`,
-  name,
+  `name`,
   `place`,
   `start`,
   `end`,

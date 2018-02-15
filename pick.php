@@ -28,7 +28,6 @@ while (isset($data[$i])) {
         if (!isset($_SESSION["tickets"][$_GET["id"]][$_GET["day"]])) {
             $_SESSION["tickets"][$_GET["id"]][$_GET["day"]] = 1;
         }
-        var_dump($_SESSION);
     }
     $i++;
 }

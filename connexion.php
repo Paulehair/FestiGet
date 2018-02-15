@@ -38,6 +38,8 @@ if (isset($_POST['connect'])) {
         if ($userExist == 1) {
             //$userInfo = $requeteUser->fetch(PDO::FETCH_ASSOC);
             $_SESSION['id'] = $row['id'];
+            session_start();
+            session_unset();
             header("Location: home.php");
         }
         else {
