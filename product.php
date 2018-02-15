@@ -4,13 +4,11 @@ session_start();
 
 require_once "connection.php";
 
-var_dump($_SESSION);
-
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
 SELECT
   `id`,
-  name,
+  `name`,
   `place`,
   `start`,
   `end`,

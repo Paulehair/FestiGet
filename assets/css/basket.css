@@ -1,0 +1,19 @@
+.basket_product {
+    background: #FEE;
+    border-radius: 10px;
+    width: 700px;
+    margin: 50px auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-family: "Open Sans";
+}
+
+.basket_product_day {
+    font-size: 22px;
+}
+
+.basket_product_count {
+    font-size: 16px;
+}
