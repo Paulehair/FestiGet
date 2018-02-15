@@ -33,10 +33,12 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="assets/css/basket.css">
 </head>
 <body>
+    <h2>Basket</h2>
     <div class="basket">
         <?php
 
         $i = 0;
+        $is_empty = true;
         while ($i < 999) {
             if (isset($_SESSION["tickets"][$i])) {
                 echo "<div class='basket_product'>";
@@ -50,10 +52,14 @@ if (!isset($_SESSION['id'])) {
                     $j++;
                 }
                 echo "</div>";
+                $is_empty = false;
             }
             $i++;
         }
-
+        if ($is_empty === true) {
+            echo "<p>Your basket is empty!</p>";
+        }
+        echo "<a href='home.php'>Return to the main page</a>";
         ?>
     </div>
 </body>

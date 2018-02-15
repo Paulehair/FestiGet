@@ -6,38 +6,50 @@ require_once ('connection.php');
 //Check if 'id' exists = someone is connected, else return to connexion.php
 if (isset($_SESSION['id'])) {
     //get all datas from table member
-    $requeteUser = "SELECT
-                *
-            FROM
-                `member`
-            WHERE
-                `id` = :id
-            ;";
+    $requeteUser = "
+        SELECT
+            *
+        FROM
+            `member`
+        WHERE
+            `id` = :id
+        ;";
     $stmt = $connection->prepare($requeteUser);
-    $stmt -> bindValue(':id', $_SESSION['id']);
+    $stmt->bindValue(':id', $_SESSION['id']);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    $newPseudo = htmlspecialchars($_POST['newPseudo']);
-    var_dump($newPseudo);
-
     //insert into table member new value of pseudo that equals ":pseudo"
-    if ($_POST['newPseudo'] && !empty($_POST['newPseudo']) ) {
-        $insertPseudo = "UPDATE
+    if ((isset($_POST['newPseudo']) && $_POST['newPseudo']) != "" ||
+        (isset($_POST['newMail']) && $_POST['newMail']) != "" ||
+        (isset($_POST['newMdp']) && isset($_POST['newMdp']) && $_POST['newMdp'] != "")) {
+        $newPseudo = htmlspecialchars($_POST['newPseudo']);
+        $newMail = htmlspecialchars($_POST['newMail']);
+        if ($_POST['newMdp'] == $_POST['newMdp2'] && $_POST['newMdp'] != "") {
+            $newMdp = $_POST['newMdp'];
+            $insertNewMdp = ", `password` = :password";
+        } else {
+            $insertNewMdp = "";
+        }
+        $insertData = "
+        UPDATE 
           `member`
         SET
-          `pseudo` = :pseudo
+          `pseudo` = :pseudo,
+          `mail` = :mail" . $insertNewMdp . "
         WHERE
           `id` = :id
         ;";
-        $stmt = $connection->prepare($insertPseudo);
+        $stmt = $connection->prepare($insertData);
         $stmt->bindValue(':id', $_SESSION['id']);
-        $stmt->bindValue(':pseudo', $row['newPseudo']);
+        $stmt->bindValue(':pseudo', $_POST['newPseudo']);
+        $stmt->bindValue(':mail', $_POST['newMail']);
+        if ($_POST['newMdp'] == $_POST['newMdp2'] && $_POST['newMdp'] != "") {
+            $stmt->bindValue(':password', $_POST['newMdp']);
+        }
         $stmt->execute();
         header("Location: profile.php?id=".$_SESSION['id']);
-            }
-             var_dump($row['newPseudo'])
-            ?>
+    }
+    ?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -67,7 +79,6 @@ if (isset($_SESSION['id'])) {
     </html>
     <?php
 } else {
-    echo "lol";
-    //header("Location: connexion.php");
+    header("Location: connexion.php");
 }
 ?>

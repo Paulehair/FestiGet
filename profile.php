@@ -41,8 +41,10 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         if (isset($_SESSION['id']) && $row['id'] == $_SESSION['id']) {
             ?>
             <a class="linkEdit" href="edit.php">Edit profile</a>
-            </br>
+            <br>
             <a href="deconnect.php">Deconnect</a>
+            <br>
+            <a href="home.php">Home</a>
             <?php
         } else {
             echo "lol";
