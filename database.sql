@@ -29,12 +29,12 @@ CREATE TABLE `fest` (
   `start` varchar(255) NOT NULL,
   `end` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `ticket_count_d1` int(11) NOT NULL,
-  `ticket_count_d2` int(11) NOT NULL,
-  `ticket_count_d3` int(11) NOT NULL,
-  `ticket_price_d1` int(11) NOT NULL,
-  `ticket_price_d2` int(11) NOT NULL,
-  `ticket_price_d3` int(11) NOT NULL,
+    `ticket_count_d1` int(11) NOT NULL,
+    `ticket_count_d2` int(11) NOT NULL,
+    `ticket_count_d3` int(11) NOT NULL,
+    `ticket_price_d1` int(11) NOT NULL,
+    `ticket_price_d2` int(11) NOT NULL,
+    `ticket_price_d3` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
