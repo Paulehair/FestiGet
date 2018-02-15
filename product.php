@@ -1,6 +1,10 @@
 <?php
 
+session_start();
+
 require_once "connection.php";
+
+var_dump($_SESSION);
 
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
@@ -85,26 +89,29 @@ if (!isset($index)) {
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d1'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose">
                                  <p class="festival27F">Jour 1 <?php if ($data[$index]['ticket_count_d1'] != -1) {echo " - " . $data[$index]["ticket_price_d1"] . "€";} ?></p>
+                                 <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <div class="carreRose">
+                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=1">
                                  <img class="plus" src="assets/img/plus.png" alt="">
-                             </div>
+                             </a>
                          </div>
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d2'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose2">
                                 <p class="festival27F">Jour 2 <?php if ($data[$index]['ticket_count_d2'] != -1) {echo " - " . $data[$index]["ticket_price_d2"] . "€";} ?></p>
+                                 <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <div class="carreRose">
+                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=2">
                                  <img class="plus" src="assets/img/plus.png" alt="">
-                         </div>
+                             </a>
                          </div>
                          <div class="button_day" style="<?php if ($data[$index]['ticket_count_d3'] == -1) {echo "display: none";} ?>">
                              <div class="rectangleRose3">
                                  <p class="festival27F">Jour 3 <?php if ($data[$index]['ticket_count_d3'] != -1) {echo " - " . $data[$index]["ticket_price_d3"] . "€";} ?></p>
+                                 <p class="festival27F_places" style="margin-left: 340px; margin-top: 10px;">Places restantes: <?= $data[$index]['ticket_count_d1'] ?></p>
                              </div>
-                             <div class="carreRose">
+                             <a class="carreRose" style="display: block" href="pick.php?id=<?= $_GET["id"]?>&day=3">
                                  <img class="plus" src="assets/img/plus.png" alt="">
-                             </div>
+                             </a>
                          </div>
                      </div>
                  </section>
