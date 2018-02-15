@@ -48,7 +48,7 @@ if (!isset($_SESSION['id'])) {
                     <div class="headerRight">
                         <ul class="headerRightList">
                             <li class="headerRightListItem"> <em><input class="Search" type="text" name=""  value="Search..."></em></li>
-                            <li class="headerRightListItem"><img class="Cadi"src="img/Cadi.png" alt="pp" title="pp"></li>
+                            <li class="headerRightListItem"><a href="basket.php"><img class="Cadi"src="img/Cadi.png" alt="pp" title="pp"></a></li>
                             <li class="headerRightListItem"><a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="PP" src="img/PP.png" alt=""></a></li>
                         </ul>
                     <div class="menu">
