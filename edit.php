@@ -22,7 +22,7 @@ if (isset($_SESSION['id'])) {
     var_dump($newPseudo);
 
     //insert into table member new value of pseudo that equals ":pseudo"
-    if ($_POST['newPseudo'] && !empty($_POST['newPseudo']) && $_POST['newPseudo'] !== $row['pseudo']) {
+    if ($_POST['newPseudo'] && !empty($_POST['newPseudo']) ) {
         $insertPseudo = "UPDATE
           `member`
         SET
@@ -30,12 +30,13 @@ if (isset($_SESSION['id'])) {
         WHERE
           `id` = :id
         ;";
-        $stmt = $conn->prepare($insertPseudo);
+        $stmt = $connection->prepare($insertPseudo);
         $stmt->bindValue(':id', $_SESSION['id']);
         $stmt->bindValue(':pseudo', $row['newPseudo']);
         $stmt->execute();
         header("Location: profile.php?id=".$_SESSION['id']);
             }
+             var_dump($row['newPseudo'])
             ?>
 
     <!DOCTYPE html>
