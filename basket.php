@@ -49,7 +49,7 @@ if (!isset($_SESSION['id'])) {
                 <a href=""><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
             </div>
             <div class="profile">
-                <a href=""><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
+                <a href="profile.php?id=<?= $_SESSION["id"] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
             </div>
         </div>
     </div>

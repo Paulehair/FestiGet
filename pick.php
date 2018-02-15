@@ -31,6 +31,6 @@ while (isset($data[$i])) {
     }
     $i++;
 }
-header("Location: product.php?id=" . $_GET["id"]);
+header("Location: home.php?id=" . $_GET["id"]);
 
 ?>
