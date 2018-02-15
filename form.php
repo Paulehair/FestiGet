@@ -100,13 +100,13 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
         <p class="logoText">get to your festival</p>
     </div>
     <div class="headerItems">
-        <div class="search">
+         <div class="search">
             <input type="text" class="searchBar" placeholder="Search...">
-        </div>
-        <div class="card">
+         </div>
+         <div class="card">
             <a href="basket.php?id=<?= $_SESSION['id'] ?>"><img class="cardImg" src="assets/img/cartcadi.png" alt="card" title="card"></a>
-        </div>
-        <div class="profile">
+         </div>
+         <div class="profile">
             <a href="profile.php?id=<?= $_SESSION['id'] ?>"><img class="ppImg" src="assets/img/pp.png" alt="profile" title="profile picture"></a>
         </div>
     </div>
