@@ -4,6 +4,11 @@ require_once "connection.php";
 
 session_start();
 
+if (isset($_SESSION["CHAOS"])) {
+    echo $_SESSION["CHAOS"];
+    exit;
+}
+
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("
 SELECT
@@ -68,24 +73,34 @@ if (!isset($_SESSION['id'])) {
             // FILL ARTICLE TEMPLATES WITH DATA INFORMATIONS AND PRINT IT
             $i = 0;
             while (isset($data[$i])) {
-                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "'> " ;
+                echo "<a class='articlesHome' href='product.php?id=" . $data[$i]["id"] . "'>" ;
                 echo "<img class='galleryContent' src='img/Festival1.jpg'>";
                 echo "<div class='desc'>" . $data[$i]["name"] . "</div>";
                 echo "<div class='desc'>" . $data[$i]["start"] . " - " . $data[$i]["end"] . "</div>";
-                echo "<div class='articles'>
-                <p> " . $data[$i]['name'] . "  </p>
-                <p>Spot : " . $data[$i]['place'] . " </p>
-                <p>From " . $data[$i]['start'] . " to " . $data[$i]['end'] . " </p>
-                <p>Description : " .  $data[$i]['description'] . " </p>
-                <p>Tickets number day 1 : " . $data[$i]['ticket_count_d1'] . " </p>
-                <p>Tickets number day 2 : " . $data[$i]['ticket_count_d2'] . " </p>
-                <p>Ticket price day 1 : " . $data[$i]['ticket_price_d1'] ."$".  "</p>
-                <p>Ticket price day 2 : " . $data[$i]['ticket_price_d2']  ."$". "</p> 
-                </div>"  ;
+                echo "<div class='articles'>";
+                echo "<p>" . $data[$i]['name'] . "  </p>";
+                echo "<p>Spot : " . $data[$i]['place'] . " </p>";
+                echo "<p>From " . $data[$i]['start'] . " to " . $data[$i]['end'] . " </p>";
+                echo "<p>Description : " .  $data[$i]['description'] . " </p>";
+                echo "<p>Tickets number day 1 : " . $data[$i]['ticket_count_d1'] . " </p>";
+                echo "<p>Tickets number day 2 : " . $data[$i]['ticket_count_d2'] . " </p>";
+                echo "<p>Ticket price day 1 : " . $data[$i]['ticket_price_d1'] ."€".  "</p>";
+                echo "<p>Ticket price day 2 : " . $data[$i]['ticket_price_d2']  ."€". "</p>";
+                echo "</div>";
+                if ($_SESSION['privilege'] === 'admin') {
+                    echo "<form action='delete_fest.php' method='POST'>";
+                    echo "<input type='text' name='delete_id' value='" . $data[$i]["id"] . "'>";
+                    echo "<input class='action_button' type='submit' name='delete' value='Delete'>";
+                    echo "</form>";
+                }
+
                 echo "</a>";
                 $i++;
-            }
-            ?>
+                }
+                if ($_SESSION['privilege'] === 'admin') {
+                    echo '<a href="HUE_HUE_HUE.php" class="ATOMIC_BOMB" style="margin-top: 1000px;background:red;width: 200px;height: 200px;border-radius:100%;text-align:center;padding:70px 20px;box-sizing: border-box;font-size:30px;">A.T.O.M.I.C. .B.O.M.B</a>';
+                }
+                ?>
             </section>
         </header>
     </body>

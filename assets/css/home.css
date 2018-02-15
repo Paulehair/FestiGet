@@ -134,3 +134,26 @@ width: 100%;
 a {
     color: black;
 }
+
+form {
+    width: 100%;
+}
+
+.action_button {
+    background: white;
+    position: absolute;
+    left: 0;
+    margin-left: 65px;
+    margin-top: -150px;
+    display: block;
+    border: none;
+    height: 20px;
+    width: 200px;
+    border-radius: 2px;
+}
+
+.ATOMIC_BOMB {
+    background = red;
+    width: 150px;
+    height: 150px;
+}
