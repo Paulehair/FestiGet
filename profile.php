@@ -61,9 +61,11 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
         //check if 'id' exists = someone is connected AND if id of session equals id of page
         if (isset($_SESSION['id']) && $row['id'] == $_SESSION['id']) {
             ?>
-            <a class="link" href="edit.php">Edit profile</a>
-            </br>
-            <a class="link" href="deconnect.php">Deconnect</a>
+            <a class="linkEdit" href="edit.php">Edit profile</a>
+            <br>
+            <a href="deconnect.php">Deconnect</a>
+            <br>
+            <a href="home.php">Home</a>
             <?php
         } else {
             echo "lol";
