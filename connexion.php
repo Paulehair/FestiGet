@@ -3,6 +3,11 @@ session_start();
 
 require_once ('connection.php');
 
+if (isset($_SESSION["id"])) {
+    header("Location: home.php");
+    exit;
+}
+
 if (isset($_POST['connect'])) {
     $mail = htmlspecialchars($_POST['mail']);
     $mdp = sha1($_POST['mdp']);
@@ -62,10 +67,10 @@ if (isset($_POST['connect'])) {
 </head>
 <body>
 <div class="header">
-    <div class="logo">
+    <a href="home.php" class="logo">
         <p class="festiget">FESTI<span class="pink">GET</span></p>
         <p class="logoText">get to your festival</p>
-    </div>
+    </a>
     <div class="headerItems">
         <div class="search">
             <input type="text" class="searchBar" placeholder="Search...">

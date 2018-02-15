@@ -1,13 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pauleherman
- * Date: 13/02/2018
- * Time: 10:43
- */
-?>
 
-<?php
+session_start();
+
+if (isset($_SESSION["id"])) {
+    header("Location: home.php");
+    exit;
+}
 
 require_once ('connection.php');
 
@@ -95,10 +93,10 @@ if (isset($_POST['formok']) && $_POST["formok"] != "refresh") {
 </head>
 <body>
 <div class="header">
-    <div class="logo">
+    <a href="home.php" class="logo">
         <p class="festiget">FESTI<span class="pink">GET</span></p>
         <p class="logoText">get to your festival</p>
-    </div>
+    </a>
     <div class="headerItems">
          <div class="search">
             <input type="text" class="searchBar" placeholder="Search...">

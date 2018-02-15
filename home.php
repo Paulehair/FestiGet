@@ -55,10 +55,10 @@ if (!isset($_SESSION['id'])) {
     <body>
         <header>
             <div class="header">
-                <div class="logo">
+                <a href="home.php" class="logo">
                     <p class="festiget">FESTI<span class="pink">GET</span></p>
                     <p class="logoText">get to your festival</p>
-                </div>
+                </a>
                 <div class="headerItems">
                     <div class="search">
                         <input type="text" class="searchBar" placeholder="Search...">
@@ -96,6 +96,9 @@ if (!isset($_SESSION['id'])) {
                 }
                 echo "</a>";
                 $i++;
+            }
+            if ($i == 0) {
+                echo "No fest available!";
             }
             echo "</div>";
             if ($_SESSION['privilege'] === 'admin') {

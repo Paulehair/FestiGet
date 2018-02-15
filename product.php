@@ -58,10 +58,10 @@ if (!isset($index)) {
              <div class="Container">
                  <section class="homePage">
                      <div class="header">
-                         <div class="logo">
+                         <a href="home.php" class="logo">
                              <p class="festiget">FESTI<span class="pink">GET</span></p>
                              <p class="logoText">get to your festival</p>
-                         </div>
+                         </a>
                          <div class="headerItems">
                              <div class="search">
                                  <input type="text" class="searchBar" placeholder="Search...">
