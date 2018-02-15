@@ -1,12 +1,12 @@
 .center {
-    height:100vh;
+    height:85vh;
     margin:0 auto;
 }
 
 .form {
     width: 50%;
     margin: 0 auto;
-    padding-top: 20%;
+    padding-top: 10%;
 }
 
 .table {

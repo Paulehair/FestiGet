@@ -51,7 +51,7 @@ if (!isset($index)) {
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/font-face.css">
         <link rel="stylesheet" href="assets/css/header.css">
-        <link rel="stylesheet" href="assets/css/profile.css">
+        <link rel="stylesheet" href="assets/css/product.css">
     </head>
     <body>
          <header class="header">

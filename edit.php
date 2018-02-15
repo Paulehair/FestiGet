@@ -82,18 +82,51 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-    <div>
-        <h2>Hello <?=$row['pseudo']?>!</h2>
-        <form method="POST" action="">
-            <label for="newPseudo">Pseudo</label>
-            <input type="text" name="newPseudo" placeholder="Enter new pseudo" value="<?= $row['pseudo'] ?>">
-            <label for="newMail">Mail</label>
-            <input type="text" name="newMail" placeholder="Enter new mail" value="<?= $row['mail'] ?>">
-            <label for="newMdp">Nouveau mot de passe</label>
-            <input type="password" name="newMdp" placeholder="Enter new password" value="">
-            <label for="newPseudo">Confirmer le nouveau mot de passe</label>
-            <input type="password" name="newMdp2" placeholder="Enter new password again" value="">
-            <input type="submit" name="confirm" placeholder="Confirm changes">
+    <div class="container">
+        <form class="form" method="POST" action="">
+            <table class="table">
+                <h2 class="title">Hello <?=$row['pseudo']?>!</h2>
+
+                <div class="cont">
+                    <div class="label">
+                        <label class="label" for="newPseudo">Pseudo</label>
+                    </div>
+                    <div class="input">
+                        <input class="input" type="text" name="newPseudo" placeholder="Enter new pseudo" value="<?= $row['pseudo'] ?>">
+                    </div>
+                </div>
+
+                <div class="cont">
+                    <div class="label">
+                        <label class="label" for="newMail">Mail</label>
+                    </div>
+                    <div class="input">
+                        <input class="input" type="text" name="newMail" placeholder="Enter new mail" value="<?= $row['mail'] ?>">
+                    </div>
+                </div>
+
+                <div class="cont">
+                    <div class="label">
+                        <label class="label" for="newMdp">Nouveau mot de passe</label>
+                    </div>
+                    <div class="input">
+                        <input class="input" type="password" name="newMdp" placeholder="Enter new password" value="">
+                    </div>
+                </div>
+
+                <div class="cont">
+                    <div class="label">
+                        <label class="label" for="newPseudo">Confirmer le nouveau mot de passe</label>
+                    </div>
+                    <div class="input">
+                        <input class="input" type="password" name="newMdp2" placeholder="Enter new password again" value="">
+                    </div>
+                </div>
+                <div class="cont submit">
+                    <input class="button" type="submit" name="confirm" placeholder="Confirm changes">
+                </div>
+            </table>
+
         </form>
     </div>
     </body>
