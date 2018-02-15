@@ -1,10 +1,13 @@
 <?php
 
-session_start();
-
 require_once "connection.php";
 
 session_start();
+
+if (!isset($_SESSION['id'])) {
+    header("Location: connexion.php");
+    exit;
+}
 
 // RETRIEVE DATA FROM DATABASE
 $data_fetcher = $connection->prepare("

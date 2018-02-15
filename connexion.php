@@ -37,9 +37,9 @@ if (isset($_POST['connect'])) {
         $userExist = $requeteUser->rowcount();
         if ($userExist == 1) {
             //$userInfo = $requeteUser->fetch(PDO::FETCH_ASSOC);
-            $_SESSION['id'] = $row['id'];
             session_start();
             session_unset();
+            $_SESSION['id'] = $row['id'];
             header("Location: home.php");
         }
         else {
